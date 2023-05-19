@@ -13,4 +13,6 @@ jobs:
     name: Print Env according to branch
     runs-on: ubuntu-latest
     steps:
-    - run: echo $VEG hello
+    - run: echo ${{ env.VEG }} hello
+    
+      
