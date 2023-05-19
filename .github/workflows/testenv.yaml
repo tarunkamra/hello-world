@@ -12,7 +12,7 @@ jobs:
   PrintEnv:
     name: Print Env according to branch
     runs-on: ubuntu-latest
-    environment: ENV1
+    environment: ENV2
     steps:
     - run: echo ${{ env.VEG }} hello
     
