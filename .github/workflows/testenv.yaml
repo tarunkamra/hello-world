@@ -34,5 +34,7 @@ jobs:
       name: ${{needs.WhichEnv.outputs.output1}}
     steps:
     - run: echo $VEG hello ${{ secrets.REPOSECRET }}
+      env: 
+        VEG: ${{ env.VEG }}
     
       
