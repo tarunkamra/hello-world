@@ -1,0 +1,16 @@
+name: testing-env
+on:
+  push:
+    branches:
+    - develop
+    - main
+    
+env: 
+  VEG: ${{ vars.VAR1 }} 
+  
+jobs:
+  PrintEnv:
+    name: Print Env according to branch
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo $VEG hello
