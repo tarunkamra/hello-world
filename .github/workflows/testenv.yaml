@@ -33,6 +33,6 @@ jobs:
     environment: 
       name: ${{needs.WhichEnv.outputs.output1}}
     steps:
-    - run: echo ${{ env.VEG }} hello
+    - run: echo ${{ env.VEG }} hello ${{ secrets.REPOSECRET }}
     
       
