@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: WhichEnv
     environment: 
-      name: ${{ needs.WhichEnv.outputs.output1 }}
+      name: ${{ steps.WhichEnv.outputs.env_name }}"
     steps:
     - run: echo ${{ env.VEG }} hello
     
