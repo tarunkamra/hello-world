@@ -33,7 +33,7 @@ jobs:
     environment: 
       name: ${{needs.WhichEnv.outputs.output1}}
     steps:
-    - run: echo $VEG hello ${{ secrets.REPOSECRET }} ${{needs.WhichEnv.outputs.output1}}
+    - run: echo $VEG hello ${{ vars.RECIPE }} ${{needs.WhichEnv.outputs.output1}}
       env: 
         VEG: ${{ env.VEG }}
     
