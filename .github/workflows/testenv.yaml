@@ -10,7 +10,7 @@ env:
   
 jobs:
   PrintEnv:
-    name: Print Env according to branch
+    name: Job for ${{ vars.VAR1 }}
     runs-on: ubuntu-latest
     steps:
     - run: echo $VEG
