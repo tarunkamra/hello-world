@@ -1,4 +1,4 @@
-name: testing-env
+name: testing-env-workflow-dispatch
 on: 
   workflow_dispatch:
     inputs:
