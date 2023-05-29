@@ -27,7 +27,7 @@ jobs:
         fi  
   
   PrintEnv:
-    name: Print Env according to branch
+    name: Print Env according to branch - veg ${{ vars.VEG }}
     runs-on: ubuntu-latest
     needs: WhichEnv
     environment: 
