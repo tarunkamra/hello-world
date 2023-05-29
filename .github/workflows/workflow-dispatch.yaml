@@ -24,9 +24,9 @@ jobs:
     - id: step1
       run: |
         echo "Running on branch ${{ github.ref }}"
-        if [[ "${{ github.event_name }}" == "workflow_dispatch"] && [ "${{ github.event.inputs.name }}" == "ee-prime" ]]; then
+        if [[ "${{ github.event_name }}" == "workflow_dispatch" &&  "${{ github.event.inputs.name }}" == "ee-prime" ]]; then
           echo "env_name=prime" >> "$GITHUB_OUTPUT"
-        elif [[ "${{ github.event_name }}" == "workflow_dispatch"] && [ "${{ github.event.inputs.name }}" == "ee-prod" ]]; then
+        elif [[ "${{ github.event_name }}" == "workflow_dispatch" &&  "${{ github.event.inputs.name }}" == "ee-prod" ]]; then
           echo "env_name=prod" >> "$GITHUB_OUTPUT"
         fi  
   
