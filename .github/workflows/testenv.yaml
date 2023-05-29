@@ -9,8 +9,32 @@ env:
   VEG: ${{ vars.VAR1 }} 
   
 jobs:
-  PrintEnv:
-    name: Job for ${{ vars.VAR1 }}
+  
+  WhichEnv:
+    name: Identify the env for job
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.step1.outputs.env_name }}
+    
     steps:
-    - run: echo $VEG
+    - id: step1
+      run: |
+        echo "Running on branch ${{ github.ref }}"
+        if [ "${{ github.ref }}" = "refs/heads/master" ] && [ "${{ github.event_name }}" != "workflow_dispatch"]; then
+          echo "env_name=ENV2" >> "$GITHUB_OUTPUT"
+        elif [ "${{ github.ref }}" = "refs/heads/develop" ]; then
+          echo "env_name=ENV1" >> "$GITHUB_OUTPUT"
+        fi  
+  
+  PrintEnv:
+    name: Print Env according to branch - veg ${{ vars.VEG }}
+    runs-on: ubuntu-latest
+    needs: WhichEnv
+    environment: 
+      name: ${{needs.WhichEnv.outputs.output1}}
+    steps:
+    - run: echo $VEG hello ${{ secrets.RECIPE }} ${{needs.WhichEnv.outputs.output1}}
+      env: 
+        VEG: ${{ env.VEG }}
+    
+      
